@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日志管理工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 日志管理</h1>
+            <div class="header-buttons">
+                <button id="minimize-btn" class="btn-icon">−</button>
+                <button id="close-btn" class="btn-icon">×</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="tasks">任务</button>
+            <button class="tab-btn" data-tab="schedule">日程</button>
+            <button class="tab-btn" data-tab="timer">计时器</button>
+        </div>
+
+        <!-- 任务面板 -->
+        <div id="tasks" class="tab-content active">
+            <div class="add-section">
+                <input type="text" id="task-input" placeholder="添加新任务..." />
+                <button id="add-task-btn" class="btn-primary">+</button>
+            </div>
+            <div class="task-list" id="task-list">
+                <!-- 任务项将在这里动态生成 -->
+            </div>
+        </div>
+
+        <!-- 日程面板 -->
+        <div id="schedule" class="tab-content">
+            <div class="add-section">
+                <input type="text" id="schedule-input" placeholder="添加日程..." />
+                <input type="datetime-local" id="schedule-time" />
+                <button id="add-schedule-btn" class="btn-primary">+</button>
+            </div>
+            <div class="schedule-list" id="schedule-list">
+                <!-- 日程项将在这里动态生成 -->
+            </div>
+
+            <div class="countdown-section">
+                <h3>📅 重要倒计时</h3>
+                <div class="countdown-list" id="countdown-list">
+                    <!-- 倒计时项将在这里动态生成 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 计时器面板 -->
+        <div id="timer" class="tab-content">
+            <div class="timer-section">
+                <h3>⏰ 计时器</h3>
+                <div class="timer-display" id="timer-display">00:00</div>
+                <div class="timer-controls">
+                    <button id="start-timer" class="btn-primary">开始</button>
+                    <button id="pause-timer" class="btn-secondary">暂停</button>
+                    <button id="reset-timer" class="btn-secondary">重置</button>
+                </div>
+                <input type="number" id="timer-minutes" placeholder="分钟" min="1" max="180" />
+            </div>
+
+            <div class="pomodoro-section">
+                <h3>🍅 番茄钟</h3>
+                <div class="pomodoro-display" id="pomodoro-display">25:00</div>
+                <div class="pomodoro-controls">
+                    <button id="start-pomodoro" class="btn-primary">开始专注</button>
+                    <button id="pause-pomodoro" class="btn-secondary">暂停</button>
+                    <button id="reset-pomodoro" class="btn-secondary">重置</button>
+                </div>
+                <div class="pomodoro-info">
+                    <span>工作: 25分钟</span>
+                    <span>休息: 5分钟</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
